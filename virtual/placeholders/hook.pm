@@ -6,8 +6,6 @@ start_kelp_app();
 
 run_swat_module( GET => '/hello/name', { name => 'Kelp!' } );
 
-END{
-    stop_kelp_app();
-}
+stop_kelp_app();
 
 set_response('ok');
