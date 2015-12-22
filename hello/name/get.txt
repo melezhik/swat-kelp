@@ -1,3 +1,3 @@
 X-Framework: Perl Kelp
-generator: [ module_variable('name') ]
+generator: [ module_variable('name') || 'world']
 
