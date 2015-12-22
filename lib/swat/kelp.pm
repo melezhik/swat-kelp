@@ -7,7 +7,7 @@ sub start_kelp_app {
 
     my $project_root_dir = project_root_dir();
 
-    system("cd $project_root_dir && carton exec  plackup -s Starman  -D 'app.psgi' --pid /tmp/app.pid");
+    system("cd $project_root_dir && carton exec plackup -I $project_root_dir/lib -s Starman  -D 'app.psgi' --pid /tmp/app.pid");
 
     my $pid = get_app_pid();
     ok($pid,"kelp is running . pid: $pid");

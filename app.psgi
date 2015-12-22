@@ -1,9 +1,4 @@
-use Kelp::Less;
- 
-get '/hello/?name' => sub {
-    my ( $self, $name ) = @_;
-    "Hello " . ( $name // 'world' );
-};
- 
-run;
+use MyApp;
+my $app = MyApp->new;
+$app->run;
 
