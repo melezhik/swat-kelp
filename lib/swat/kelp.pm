@@ -16,7 +16,6 @@ sub start_kelp_app {
     my $pid = get_app_pid();
     ok($pid,"kelp is running . pid: $pid");
 
-    sleep(2);
 }
 
 sub stop_kelp_app {
