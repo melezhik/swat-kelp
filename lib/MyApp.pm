@@ -4,8 +4,8 @@ use parent 'Kelp';
 sub build {
     my $self = shift;
     my $r = $self->routes;
-    $r->add( "/hello", sub { "Hello, world!" } );
-    $r->add( '/hello/:name', 'greet' );
+    $r->add( "/hello-world", sub { "Hello, world!" } );
+    $r->add( '/hello/?name', 'greet' );
 }
  
  
