@@ -27,14 +27,18 @@ sub start_kelp_app {
     );
 
     my $pid = get_app_pid();
-    ok($pid,"kelp is running . pid: $pid");
+    ok($pid,"kelp app is running. pid: $pid");
 
 }
 
 sub stop_kelp_app {
 
     my $pid = get_app_pid();
-    `kill $pid` if $pid;
+
+    if ($pid){
+        `kill $pid`;
+        ok(1,"stop old kelp app at pid: $pid"); 
+    }
 
 }
 
