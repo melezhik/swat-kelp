@@ -19,7 +19,7 @@ sub start_kelp_app {
     my $port = $ENV{port};
 
     system(
-        "cd $project_root_dir && nohup carton exec nohup plackup -I $project_root_dir/lib ".
+        "cd $project_root_dir && nohup carton exec nohup plackup ".
         "--host 0.0.0.0 --port $port ".
         "--access-log ".test_root_dir()."/access.log ".
         "--error-log ".test_root_dir()."/error.log ".
