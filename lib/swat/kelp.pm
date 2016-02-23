@@ -16,10 +16,11 @@ sub start_kelp_app {
     stop_kelp_app();
 
     my $project_root_dir = project_root_dir();
+    my $port = $ENV{port};
 
     system(
         "cd $project_root_dir && nohup carton exec nohup plackup -I $project_root_dir/lib ".
-        "--host 0.0.0.0 --port 5000 ".
+        "--host 0.0.0.0 --port $port ".
         "--access-log ".test_root_dir()."/access.log ".
         "--error-log ".test_root_dir()."/error.log ".
         'app.psgi 1>/dev/null 2>&1  & echo $! > /tmp/app.pid '.
