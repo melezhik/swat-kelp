@@ -20,11 +20,11 @@ sub start_kelp_app {
     my $pid_file = $ENV{pid_file};
 
     system(
-        "cd $project_root_dir && nohup carton exec nohup plackup ".
+        "cd $project_root_dir && nohup carton exec plackup ".
         "--host 0.0.0.0 --port $port ".
         "--access-log ".test_root_dir()."/access.log ".
         "--error-log ".test_root_dir()."/error.log ".
-        'app.psgi 1>/dev/null 2>&1  & echo $! > '.$pid_file.
+        'app.psgi 1>/dev/null 2>&1  & echo -n $! > '.$pid_file.
         " && touch ".test_root_dir()."/run.ok"
     );
 

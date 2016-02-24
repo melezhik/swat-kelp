@@ -1,3 +1,7 @@
+0.0.12 2016-02-24
+
+    "double nohub" bugfix 
+
 0.0.11 2016-02-24
 
     pid_file could be overriden
