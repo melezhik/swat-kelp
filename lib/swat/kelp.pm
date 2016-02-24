@@ -17,14 +17,15 @@ sub start_kelp_app {
 
     my $project_root_dir = project_root_dir();
     my $port = $ENV{port};
+    my $pid_file = $ENV{pid_file};
 
     system(
         "cd $project_root_dir && nohup carton exec nohup plackup ".
         "--host 0.0.0.0 --port $port ".
         "--access-log ".test_root_dir()."/access.log ".
         "--error-log ".test_root_dir()."/error.log ".
-        'app.psgi 1>/dev/null 2>&1  & echo $! > /tmp/app.pid '.
-        "&& touch ".test_root_dir()."/run.ok"
+        'app.psgi 1>/dev/null 2>&1  & echo $! > '.$pid_file.
+        " && touch ".test_root_dir()."/run.ok"
     );
 
     my $pid = get_app_pid();
@@ -44,8 +45,11 @@ sub stop_kelp_app {
 }
 
 sub get_app_pid {
+
     my $pid;
-    if (open F, "/tmp/app.pid"){
+    my $pid_file = $ENV{pid_file};
+
+    if (open F, $pid_file){
         $pid = <F>;
         close F;
     }
