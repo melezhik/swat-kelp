@@ -13,6 +13,8 @@ sub build {
 
     $r->add( [ POST => '/postme' ], sub { 'i am post only!' }  );
 
+    $r->add( '/*article/:id', "update_article" );
+
 }
 
 
@@ -28,6 +30,12 @@ sub update {
     my ( $self, $id ) = @_;
     "update id: $id"
 }
+
+sub update_article {
+    my ( $self, $article, $id ) = @_;
+    "update article: $article id: $id"
+}
+
 
 1;
 

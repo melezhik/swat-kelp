@@ -1,0 +1,3 @@
+200 OK
+update article: bar/foo/baz id: 500
+
