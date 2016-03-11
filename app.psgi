@@ -13,8 +13,6 @@ sub build {
 
     $r->add( [ POST => '/postme' ], sub { 'i am post only!' }  );
 
-    $r->add( '/*article/:id', "update_article" );
-
 }
 
 
