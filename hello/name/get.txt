@@ -1,3 +1,2 @@
-X-Framework: Perl Kelp
-generator: [ module_variable('name') || 'world']
+generator: [ "Hello ".(module_variable('name') || 'world') ]
 
